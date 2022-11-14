@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 from typing import Any
 
 import dask.dataframe as dd
+import geopandas as gpd
 import numpy as np
 import pandas as pd
-import geopandas as gpd
 import pyproj
 from fastapi import HTTPException
 from fastapi.encoders import jsonable_encoder
@@ -42,8 +42,8 @@ from src.schemas.isochrone import (
     IsochroneStartingPoint,
     IsochroneStartingPointCoord,
 )
-
 from src.utils import return_geojson_or_geobuf
+
 
 class CRUDGridCalculation(
     CRUDBase[models.GridCalculation, models.GridCalculation, models.GridCalculation]
