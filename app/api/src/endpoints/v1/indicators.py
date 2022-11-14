@@ -20,12 +20,11 @@ from src.resources.enums import (
 )
 from src.schemas.heatmap import request_examples
 from src.schemas.indicators import (
-    CalculateOevGueteklassenParameters,
     CalculateLocalAccessibilityAggregated,
+    CalculateOevGueteklassenParameters,
+    local_accessibility_aggregated_calculation_config_example,
     oev_gueteklasse_config_example,
-    local_accessibility_aggregated_calculation_config_example
 )
-
 from src.utils import return_geojson_or_geobuf
 
 router = APIRouter()
@@ -318,7 +317,7 @@ async def calculate_local_accessibility_aggregated(
     # if params.return_type.value == ReturnType.geojson.value:
     #     local_accessibility_features = jsonable_encoder(local_accessibility_features)
     
-    return return_geojson_or_geobuf(local_accessibility_features, params.return_type.value)
+    return return_geojson_or_geobuf(local_accessibility_features.__geo_interface__, params.return_type.value)
 
 
 @router.get("/ptal")

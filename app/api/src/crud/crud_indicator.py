@@ -1014,7 +1014,7 @@ class CRUDIndicator:
 
         # test_geojson = standardized_local_accessibilies_gdf.to_crs(epsg=4326).to_json()
 
-        return standardized_local_accessibilies_gdf.to_json()
+        return standardized_local_accessibilies_gdf
 
         # visualize
         
